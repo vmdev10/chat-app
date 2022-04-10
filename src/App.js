@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import ResponsiveDrawer from "./components/ResponsiveDrawer/responsiveDrawer";
 

@@ -7,9 +7,10 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import { Avatar, Typography } from "@mui/material";
+import { Avatar, Fab, InputBase, Typography } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import SearchIcon from "@mui/icons-material/Search";
+import SendIcon from "@mui/icons-material/Send";
 
 const drawerWidth = 320;
 
@@ -25,7 +26,7 @@ function ResponsiveDrawer(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", minHeight: "100vh" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -77,6 +78,7 @@ function ResponsiveDrawer(props) {
           </Box>
         </Toolbar>
       </AppBar>
+
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -112,15 +114,47 @@ function ResponsiveDrawer(props) {
           open
         ></Drawer>
       </Box>
+
       <Box
-        component="main"
         sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: "100%",
+          position: "relative",
+          top: "64px",
         }}
       >
-        <Toolbar />
+        <Box
+          sx={{
+            position: "fixed",
+            bottom: "20px",
+            right: "0px",
+            left: "320px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <InputBase
+            sx={{
+              ml: 1,
+              bgcolor: "#f1f1f1",
+              width: "85%",
+              py: ".5rem",
+              px: "1rem",
+              mr: "1rem",
+              borderRadius: "36px",
+            }}
+            placeholder="Write Something"
+            inputProps={{ "aria-label": "Write Something" }}
+          />
+          <Fab
+            style={{
+              backgroundColor: "#638bfb",
+              color: "#fff",
+            }}
+            aria-label="add"
+          >
+            <SendIcon />
+          </Fab>
+        </Box>
       </Box>
     </Box>
   );
