@@ -1,5 +1,8 @@
+import { Box, CssBaseline } from "@mui/material";
 import React from "react";
-import ResponsiveDrawer from "./components/ResponsiveDrawer/responsiveDrawer";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import Chat from "./components/Chat";
 
 function App() {
   return (
@@ -16,7 +19,12 @@ function App() {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </header>
 
-      <ResponsiveDrawer />
+      <Box sx={{ display: "flex", minHeight: "100vh" }}>
+        <CssBaseline />
+        <Header />
+        <Sidebar />
+        <Chat />
+      </Box>
     </div>
   );
 }
